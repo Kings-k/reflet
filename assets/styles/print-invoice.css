@@ -1,0 +1,167 @@
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.justify-content-start {
+    justify-content: flex-start !important;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.flex-grow-1 {
+    flex-grow: 1 !important;
+}
+
+.bg-yellow {
+    background-color: #ffc107;
+}
+
+.border-right {
+    border-right: 1px solid #000;
+}
+
+.border-dark {
+    border: 1px solid #000;
+}
+
+.border-bottom-transparent {
+    border-bottom: 1px solid transparent !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.w-90 {
+    width: 90% !important;
+}
+
+.w-75 {
+    width: 75% !important;
+}
+
+.w-70 {
+    width: 70% !important;
+}
+
+.w-60 {
+    width: 60% !important;
+}
+
+.w-50 {
+    width: 50% !important;
+}
+
+.w-40 {
+    width: 40 !important;
+}
+
+.w-30 {
+    width: 30% !important;
+}
+
+.w-25 {
+    width: 25% !important;
+}
+
+.mb-1 {
+    margin-bottom: 0.5em !important;
+}
+
+.my-0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.p-1 {
+    padding: 0.5em !important;
+}
+
+.pb-1 {
+    padding-bottom: 0.5em !important;
+}
+
+.py-0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
+#invoice-template {
+    font-family: Arial;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#invoice-template,
+#invoice-header,
+#invoice-footer,
+img {
+    width: 100% !important;
+}
+
+#invoice-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5px;
+    border-bottom: 1px dashed black !important;
+}
+
+#invoice-header > h3 {
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
+#invoice-table {
+    width: 100% !important;
+    border: 1px solid black;
+}
+
+#invoice-table-header tr > th,
+#invoice-table-body tr > td {
+    text-align: left;
+}
+
+#invoice-table-header tr > th:last-child,
+#invoice-table-body tr > td:last-child {
+    text-align: right;
+}
+
+#invoice-table-body tr {
+    border-bottom: 1px solid black !important;
+}
+
+#invoice-header > img {
+    height: 8rem !important;
+}

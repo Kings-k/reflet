@@ -1,0 +1,106 @@
+security:
+    enable_authenticator_manager: true
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
+    role_hierarchy:
+        ROLE_RECEPTIONPOS: ROLE_CLIENT
+        ROLE_TECHNICIEN: [ROLE_VEHICULE, ROLE_CONTROLE, ROLE_FICHETRAVAIL, ROLE_LICENCE,ROLE_EXPERTISE]
+        ROLE_GUICHETIER: [ROLE_RECEPTIONPOS, ROLE_COMPTE_COURANT, ROLE_BONUS]
+        ROLE_SUPER_GUICHETIER: ROLE_GUICHETIER
+        ROLE_GESTOCKPOS: [ROLE_SETTINGS, ROLE_REPORT, ROLE_DEPOT, ROLE_UOM, ROLE_CATEGORY, ROLE_SERVICE]
+        ROLE_FINANCEPOS: [ROLE_TECHNICIEN,ROLE_SETTINGS, ROLE_GUICHETIER, ROLE_UOM, ROLE_CATEGORY, ROLE_SERVICE, ROLE_REPORT, ROLE_REPORT_FINANCE, ROLE_TAUX, ROLE_CAUTION]
+        ROLE_MANAGERPOS: [ROLE_SETTINGS, ROLE_REPORT, ROLE_CREATE_USER, ROLE_AFFECTATION, ROLE_MAISON]
+        ROLE_RECEPTION: ROLE_RECEPTIONPOS
+        ROLE_GESTSTOCK: ROLE_GESTOCKPOS
+        ROLE_FINANCE: [ROLE_FINANCEPOS, ROLE_AFFECTATION, ROLE_DEPOT, ROLE_POS, ROLE_GUICHET, ROLE_COMPTES, ROLE_TAUX]
+        ROLE_TOPMANAGER: [ROLE_MAISON, ROLE_CREATE_USER, ROLE_MANAGERPOS] 
+        ROLE_ADMIN: [ROLE_SETTINGS, ROLE_UOM, ROLE_CATEGORY, ROLE_SERVICE, ROLE_MAISON, ROLE_DEPOT, ROLE_POS, ROLE_GUICHET, ROLE_CREATE_USER, ROLE_AFFECTATION]
+        ROLE_SUPER_ADMIN: ROLE_ADMIN, ROLE_DATA
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+        api_user_provider:
+            entity:
+                class: App\Entity\User
+                property: apiToken
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login:
+            pattern:  ^/api/login
+            stateless: true
+            provider: app_user_provider
+            json_login:
+                check_path:      /api/login_check
+                success_handler: App\Security\AuthenticationSuccessHandler
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        api:
+            pattern:   ^/api
+            stateless: true
+            provider: app_user_provider
+            guard:
+                authenticators:
+                    - app.jwt_token_authenticator
+
+        main:
+            lazy: true
+            provider: app_user_provider
+            guard:
+                authenticators:
+                    - App\Security\OrkaAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
+
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 600 # 10 minutes in seconds
+                path:     /
+                # by default, the feature is enabled by checking a
+                # checkbox in the login form (see below), uncomment the
+                # following line to always enable it.
+                #always_remember_me: true
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+            # # by default, the feature allows 5 login attempts per minute
+            # login_throttling: null
+
+            # configure the maximum login attempts (per minute)
+            # login_throttling:
+            #     max_attempts: 3
+
+            # # use a custom rate limiter via its service ID
+            # login_throttling:
+            #     limiter: app.my_login_rate_limiter
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /api/docs, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /settings, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/change-password, role: IS_AUTHENTICATED_REMEMBERED }
+        # - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/, role: IS_AUTHENTICATED_FULLY }
+        # - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }

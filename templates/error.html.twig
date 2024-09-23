@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container pt-5">
+            <!-- <div class="d-flex justify-content-center" style="top: 10px; z-index: 1200;"> -->
+                <div class="alert alert-danger fade show d-flex align-items-center justify-content-center" style="margin: 0; box-shadow: 0 5px 5px 2px rgba(0, 0, 0, .3); border-radius: 5px;" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                    <div class="ml-3">{{ message }}</div>
+                </div>
+            <!-- </div> -->
+            <hr>
+            {# <a href="{{ path(main_route) }}" class="btn btn-primary mt-3" style="width: 100px">
+                <i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Back
+            </a> #}
+    </div>
+{% endblock %}

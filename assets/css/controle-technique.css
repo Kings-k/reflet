@@ -1,0 +1,29 @@
+* {
+    color: #000 !important;
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#rapport-controle-technique-logo > img {
+    height: 150px !important;
+    width: 100% !important;
+}
+
+thead > tr > th, tbody > tr > td {
+    font-size: small !important;
+}
+
+thead {
+    background-color: #333;
+}
+
+th {
+    color: #fff !important;
+    text-shadow: #000 !important;
+}
+
+table {
+    width: 100%;
+}

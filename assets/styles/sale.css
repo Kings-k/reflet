@@ -1,0 +1,229 @@
+body {
+    font-family: Roboto, 'Open Sans', Arial, Helvetica, sans-serif;
+    --primary: rgb(34, 95, 95);
+    --accent: rgb(20, 146, 146);
+    background-color: #eee;
+}
+
+/* .maximize-input {
+    position: absolute;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
+}
+
+.minimize-input {
+    position: static;
+    width: auto;
+} */
+
+#createCustomer {
+    cursor: pointer;
+}
+
+#grid,
+.container-fluid>.row>div:first-child {
+    top: 1.7vh;
+}
+
+.container-fluid>.row>div:first-child {
+    left: 0.2vw;
+    padding-right: 1.25vw;
+    margin-bottom: 1.7vh;
+}
+
+#grid {
+    right: 0.5vw;
+}
+
+#grid>.row>div>.card {
+    margin-left: -0.7vw;
+    margin-right: -0.7vw;
+    margin-bottom: 0.5vh;
+    height: 13.3vh;
+    border-radius: 0 !important;
+}
+
+#grid>.row>div>.card:hover {
+    cursor: pointer;
+}
+
+#grid>.row>div>.card>.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid>.row>div>.card>.card-body {
+    color: var(--light);
+    text-align: center;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+#grid>.row>div>.card>.card-body>.badge {
+    top: 2px;
+    right: 2px;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+    color: var(--light);
+}
+
+.bg-accent {
+    background-color: var(--accent) !important;
+    color: var(--light);
+}
+
+.border-primary {
+    border-color: var(--primary) !important;
+}
+
+.border-accent {
+    border-color: var(--accent) !important;
+}
+
+.was-validated .form-control:valid,
+.was-validated .form-control:invalid {
+    margin-bottom: 0;
+    background-image: none;
+}
+
+.table td,
+.table th {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+.table thead>tr>th:nth-child(2),
+.table tbody>tr>td:nth-child(2) {
+    text-align: center;
+}
+
+.table thead>tr>th:nth-child(3),
+.table tbody>tr>td:nth-child(3) {
+    text-align: right;
+}
+
+/* #sidebar>div>div:nth-child(2) {
+    height: 4vh;
+} */
+
+#sidebar>div>div:nth-child(3),
+#sidebar>div>div:nth-child(4) {
+    height: 10vh;
+}
+
+#sidebar>div>div:nth-child(5) {
+    height: 11vh;
+}
+
+#sidebar > div > div:nth-child(5) > button {
+    height: 40px !important;
+}
+
+#sidebar>div>div:nth-child(6) {
+    height: 42vh;
+}
+
+#sidebar>div>div:last-child {
+    height: 15vh;
+}
+
+.invoice-table>thead>tr>th,
+.invoice-table>tbody>tr>td {
+    display: inline-block;
+}
+
+.invoice-table>thead>tr>th:not(:first-child),
+.invoice-table>tbody>tr>td:not(:first-child) {
+    text-align: center;
+}
+
+.invoice-table>thead>tr,
+.invoice-table>tbody>tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+.invoice-table>tbody,
+.invoice-table>tbody>tr,
+.invoice-table>thead>tr {
+    width: 100%;
+}
+
+.invoice-table>tbody>tr>td:first-child,
+.invoice-table>thead>tr>th:first-child {
+    width: 35%;
+}
+
+.invoice-table>tbody>tr>td:nth-child(2),
+.invoice-table>thead>tr>th:nth-child(2) {
+    width: 10%;
+}
+
+.invoice-table>tbody>tr>td:nth-child(3),
+.invoice-table>thead>tr>th:nth-child(3) {
+    width: 20%;
+}
+
+.invoice-table>tbody>tr>td:last-child,
+.invoice-table>thead>tr>th:last-child {
+    width: 35%;
+}
+
+.invoice-table>tbody,
+.invoice-table>thead,
+.invoice-table>tfoot {
+    display: block;
+}
+
+.invoice-table>tbody {
+    overflow: auto;
+    height: 230px;
+}
+
+#footer {
+    height: 15vh;
+    padding-right: 1.25vw;
+}
+
+.header-to-print>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-group {
+    vertical-align: middle;
+}
+
+.header-to-print {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#spinner {
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+#spinner > .spinner-border {
+    width: 5rem;
+    height: 5rem;
+    left: 50vw;
+    right: 50vw;
+    top: 40vh;
+    bottom: 60vh;
+}
+
+.receipt-header,
+.receipt-body > div {
+    border-bottom: 2px dashed #777;
+}

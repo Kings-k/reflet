@@ -1,0 +1,8 @@
+.dropdown {
+    position: relative;
+    z-index: 100;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}

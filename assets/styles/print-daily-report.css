@@ -1,0 +1,45 @@
+#daily-report {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+
+table {
+    border: 1px solid #000 !important;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+#daily-report > table,
+#daily-payments {
+    width: 100% !important;
+}
+
+#daily-payments > table {
+    width: 49% !important;
+}
+
+#daily-payments > table:first-child {
+    margin-right: 1% !important;
+}
+
+#daily-payments > table:last-child {
+    margin-right: 0 !important;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+thead > tr:first-child > th,
+#daily-report-totals-2-3 {
+    background-color: #bbb;
+}
+
+#daily-report-logo > img {
+    max-width: 500px !important;
+    margin-right: 0 !important;
+}

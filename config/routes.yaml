@@ -1,0 +1,14 @@
+# index:
+#     path: /
+#     controller: App\Controller\DefaultController::index
+
+api_login_check:
+    path: /api/login_check
+
+# initial_guichet_data:
+#     path: /api/initial_guichet_data
+#     methods: ['GET']
+#     defaults:
+#         _controller: App\Controller\SaleController::getInitialData
+#         # _api_resource_class: App\Entity\Book
+#         # _api_item_operation_name: post_publication
